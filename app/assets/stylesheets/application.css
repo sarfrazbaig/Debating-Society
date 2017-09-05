@@ -32,4 +32,26 @@
 	margin-top: 20px;
 }
 
+.modal-heading
+{
+	text-align: center;
+}
+
+.btn.sign-twitter
+{
+	background-color: #0084b4;
+	color:white;
+}
+
+.btn.sign-facebook
+{
+	background-color: #3b5998;
+	color:white;
+}
+.buttons
+{
+	text-align: center;
+}
+
+
       

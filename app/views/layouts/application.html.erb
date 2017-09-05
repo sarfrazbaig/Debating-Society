@@ -1,16 +1,25 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>Debate</title>
-    <%= csrf_meta_tags %>
+<head>
+  <title>Debate</title>
+  <%= csrf_meta_tags %>
 
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
 
-  </head>
-  <body>
-
+</head>
+<body>
+  <div id="modal1" class="modal">
+    <div class="modal-content">
+    <h4 class="modal-heading">Debating Society</h4>
+    <p class="modal-heading">Sign Up with your social media accounts tp get started </p>
+      <div class="buttons">
+      <%= link_to 'Twitter', '/auth/twitter' , :class=>"btn sign-twitter"%>
+      <%= link_to 'Facebook', '/auth/facebook' , :class=>"btn sign-facebook"%>
+      </div>
+    </div>
+  </div>
   <div class="navbar-fixed">
    <nav>
     <div class="nav-wrapper">
@@ -25,20 +34,22 @@
           <li><%= link_to 'Log Out', logout_path, method: :delete %></li>
           <li><%= link_to 'Debate', index_path%></li>
         </ul>   
-      <% else %>
+        <% else %>
         <ul class="nav navbar-nav">
-              <li><%= link_to 'Home', root_path%></li>
-               <li><%= link_to 'Twitter', '/auth/twitter' %></li>
-              <li><%= link_to 'Facebook', '/auth/facebook' %></li>
-              <li><%= link_to 'Debate', index_path%></li>
+          <li><%= link_to 'Home', root_path%></li>
+          <li>
+            <a class="waves-effect waves-light modal-trigger" href="#modal1">Sign Up</a>
+          </li>
+          <li><%= link_to 'Debate', index_path%></li>
         </ul>
-      <% end %>
+        <% end %>
       </ul>
     </div>
   </nav>
-  </div>
+</div>
 
-    <%= yield %>      
-     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
-  </body>
+<%= yield %>      
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
+
+</body>
 </html>
