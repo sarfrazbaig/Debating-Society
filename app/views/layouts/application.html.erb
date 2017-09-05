@@ -10,27 +10,34 @@
 
   </head>
   <body>
+
   <div class="navbar-fixed">
    <nav>
     <div class="nav-wrapper">
+
       <a class="brand-logo">Debating Society</a>
       <ul id="nav-mobile" class="right hide-on-med-and-down">
         <% if current_user %>
-        <ul class="nav navbar-nav pull-right">
+        <ul class="nav navbar-nav">
+          <li><%= link_to 'Home', root_path%></li>
           <li><%= image_tag current_user.image_url, alt: current_user.name %></li>
           <li><%= current_user.name %></li>
           <li><%= link_to 'Log Out', logout_path, method: :delete %></li>
+          <li><%= link_to 'Debate', index_path%></li>
         </ul>   
       <% else %>
         <ul class="nav navbar-nav">
+              <li><%= link_to 'Home', root_path%></li>
                <li><%= link_to 'Twitter', '/auth/twitter' %></li>
               <li><%= link_to 'Facebook', '/auth/facebook' %></li>
+              <li><%= link_to 'Debate', index_path%></li>
         </ul>
       <% end %>
       </ul>
     </div>
   </nav>
   </div>
+
     <%= yield %>      
      <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
   </body>
